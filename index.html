@@ -1,0 +1,76 @@
+<!-- Display the countdown timer in an element -->
+<p id="demo"></p>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("July 11, 2021 20:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+<body>
+   <p>
+   <select id="list" style="padding: 10px;" onchange="getSelectValue();">
+     <option value="1">Brendan</option>
+     <option value="2">Tim</option>
+     <option value="3">Mark</option>
+     <option value="4">Siva</option>
+     <option value="5">Liam</option>
+   </select>
+   </p>
+   
+  
+   <p>Select a Winner UEFA 2020:</p>
+
+<div>
+  <input type="radio" id="huey" name="drone" value="huey"
+         checked>
+  <label for="huey">Italy</label>
+</div>
+
+<div>
+  <input type="radio" id="dewey" name="drone" value="dewey">
+  <label for="dewey">England</label>
+</div>
+
+
+
+   </p>
+   <script>
+        function getSelectValue()
+        {
+            var selectedValue = document.getElementById("list").value;
+            alert(selectedValue);
+        }
+        getSelectValue();
+    </script>
+	
+	<form>
+	<input type="submit" value="Submit">
+	</form>
+ </body>
+ 
